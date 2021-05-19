@@ -18,3 +18,19 @@ app.listen(port, () => {
 });
 
 
+// ROUTES
+/*---------------------------------
+  Test Route
+----------------------------------*/
+app.get('/test', (req, res) => {
+  res.status(200).send('Server working!');
+});
+
+/*---------------------------------
+  GET Route
+----------------------------------*/
+app.get('/', (req, res) => {
+  res.sendFile("dist/index.html");
+});
+
+

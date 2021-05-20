@@ -1,18 +1,24 @@
 const path = require('path');
-//Config server express
 const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const axios = require('axios');
+
+
+dotenv.config();
+
+//Config server express
 const app = express();
 
-const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const cors = require('cors');
 app.use(cors());
 
 app.use(express.static('dist'));
 
-const port = 8081;
+const port = process.env.PORT || 8081;
 app.listen(port, () => {
   console.log("server running...");
   console.log(`running on localhost:${port}`)

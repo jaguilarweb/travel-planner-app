@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 const cors = require('cors');
 app.use(cors());
 
-app.use(express.static('src/client'));
+app.use(express.static('dist'));
 
 const port = 8081;
 app.listen(port, () => {
@@ -31,7 +31,7 @@ app.get('/test', (req, res) => {
   GET Route
 ----------------------------------*/
 app.get('/', (req, res) => {
-  res.sendFile('/client/views/index.html', { root: __dirname + '/..' })
+  res.sendFile('dist/index.html');
 });
 
 

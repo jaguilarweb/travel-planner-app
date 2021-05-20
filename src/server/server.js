@@ -31,7 +31,7 @@ app.get('/test', (req, res) => {
   GET Route
 ----------------------------------*/
 app.get('/', (req, res) => {
-  res.sendFile('dist/index.html');
+  res.sendFile("dist/index.html");
 });
 
 

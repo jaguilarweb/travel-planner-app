@@ -1,12 +1,11 @@
-//Import Modules
-import { main } from './js/main'
+import { handleSubmit } from './js/formHandler'
 
-// Import Styles
-//import './styles/ressets.scss'
 
-  alert("Test");
-// Export modules
+import './styles/ressets.scss'
+import './styles/style.scss'
+
+
 
 export {
-  main
+  handleSubmit
  }

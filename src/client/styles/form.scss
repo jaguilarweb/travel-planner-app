@@ -1,0 +1,22 @@
+@import "_variables.scss";
+
+section {
+    display: block;
+    form {
+        color: white;
+        border-radius: 3px;
+        padding: 40px;
+        input {
+            border: 2px solid black;
+            padding: 5px 20px;
+            width: 100%;
+            line-height: 16px;
+            margin: 10px 0;
+        }
+        .submitBtn {
+            background-color: black;
+            border-radius: 5px;
+            color: white;
+        }
+    }
+}

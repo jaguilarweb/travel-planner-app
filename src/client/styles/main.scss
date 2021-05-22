@@ -1,0 +1,46 @@
+@import "_variables.scss";
+
+main{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.main-container{
+  width: 600px;
+}
+
+.main-section-top{
+  background-color: $color-grey;
+}
+.main-section-bottom{
+  display: flex;
+  flex-wrap: nowrap;
+  padding-top: 20px;
+  justify-content: space-around;
+  background-color: $color-pink;
+}
+
+.section-width{
+  width: 90%;
+  margin: 10px
+}
+
+.section-image{
+  display: grid;
+  justify-items:flex-start;
+  button{
+    width: 60px;
+    border: 2px solid black;
+    border-radius: 20px;
+  }
+}
+
+img {
+  height: 200px;
+  width: 200px;
+  background-color: $color-grey;
+}
+.section-content{
+  border: 2px solid red;
+}

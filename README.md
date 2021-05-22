@@ -13,7 +13,7 @@ This project requires me to build out a travel app that, at a minimum, obtains a
 
 ## Dependencies
 
-´´´
+```
 - npm install
 - npm install express
 - npm install body-parser
@@ -32,5 +32,6 @@ This project requires me to build out a travel app that, at a minimum, obtains a
 - npm install dotenv
 - npm install workbox-webpack-plugin --save-dev
 - npm install axios
-´´´
+
+```
 

@@ -24,7 +24,6 @@ const port = process.env.PORT || 8081;
 app.listen(port, () => {
   console.log("server running...");
   console.log(`running on localhost:${port}`);
-  console.log(GEON_USER)
 });
 
 

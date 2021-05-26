@@ -9,6 +9,11 @@ dotenv.config();
 
 // Apis keys
 const GEON_USER = process.env.GEON_USER;
+const WEATHER_API= process.env.WEATHER_API;
+const PIXABAY_API= process.env.PIXABAY_API;
+
+// Setup empty JS object to act as endpoint for all routes
+projectData = {};
 
 //Config server express
 const app = express();
@@ -43,15 +48,54 @@ app.get('/', (req, res) => {
 });
 
 /*---------------------------------
-  GET Route
+  POST Route
 ----------------------------------*/
 
 app.post('/dataAnalyze', async (req, res) => {
-  const location = req.body["formText"];
+//  const location = req.body["formText"];
+//  const date = req.body["formDate"];
+  const formDate = "2021-06-25T00:00:00"
+  const location = "London";
+
+  //const dateTrip = new Date(req.body["formDate"]);
+  const dateTrip = new Date(formDate);
+  const today = new Date();
+  const msPerDay = 24 * 60 * 60 * 1000;
+  const week = today.getTime() + (msPerDay * 7);
+  let weatheResponse = {};
+
   try {
-    const response = await axios.get(`http://api.geonames.org/searchJSON?q=${location}&maxRows=1&username=${GEON_USER}`)
-    res.send(response.data);
+    const geonResponse = await axios.get(`http://api.geonames.org/searchJSON?q=${location}&maxRows=1&username=${GEON_USER}`)
+    const latitude = geonResponse.data.geonames[0].lat;
+    const longitude = geonResponse.data.geonames[0].lng;
+    if (dateTrip > week ){
+      //Date future => Forecast
+      weatheResponse = await axios.get(`https://api.weatherbit.io/v2.0/forecast/daily?key=${WEATHER_API}&M=Metric&lat=${latitude}&lon=${longitude}&days=1`)
+      console.log(weatheResponse.data.data)
+      console.log(weatheResponse.data.data[0].weather.description)
+    } else {
+       //Date within week => current
+      weatheResponse = await axios.get(`https://api.weatherbit.io/v2.0/current?key=${WEATHER_API}&M=Metric&lat=${latitude}&lon=${longitude}`)
+      console.log(weatheResponse.data.data)
+      console.log(weatheResponse.data.data[0].weather.description)
+    }
+
+    const newEntry = {
+      contry: geonResponse.data.geonames[0].countryName,
+      location: location,
+      high: weatheResponse.data.data[0].high_temp || '',
+      low: weatheResponse.data.data[0].min_temp || '',
+      description: weatheResponse.data.data[0].weather.description,
+      temp: weatheResponse.data.data[0].temp || '', 
+      date: formDate,
+    }
+    console.log(newEntry)
+    projectData = newEntry;
+    res.send(projectData);
   } catch (error) {
     console.log('Error: ', error);
   }
 });
+
+
+//https://pixabay.com/api/?key=${PIXABAY_API}&q=${location}&image_type=photo

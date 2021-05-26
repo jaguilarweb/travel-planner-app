@@ -32,8 +32,6 @@ function handleSubmit(event){
     })
     .then(response => response.json())
     .then(function(response) {
-        const latitude = response.geonames[0].lat;
-        const longitude = response.geonames[0].lng;
         const country = response.geonames[0].countryName;
         const location = response.geonames[0].name;
         resultContainer.className = "result-api";

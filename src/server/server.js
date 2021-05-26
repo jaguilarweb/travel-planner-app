@@ -52,10 +52,9 @@ app.get('/', (req, res) => {
 ----------------------------------*/
 
 app.post('/dataAnalyze', async (req, res) => {
-//  const location = req.body["formText"];
+  const location = req.body["formText"];
 //  const date = req.body["formDate"];
   const formDate = "2021-06-25T00:00:00"
-  const location = "London";
 
   //const dateTrip = new Date(req.body["formDate"]);
   const dateTrip = new Date(formDate);
@@ -70,15 +69,12 @@ app.post('/dataAnalyze', async (req, res) => {
     const longitude = geonResponse.data.geonames[0].lng;
     if (dateTrip > week ){
       //Date future => Forecast
-      weatheResponse = await axios.get(`https://api.weatherbit.io/v2.0/forecast/daily?key=${WEATHER_API}&M=Metric&lat=${latitude}&lon=${longitude}&days=1`)
-      console.log(weatheResponse.data.data)
-      console.log(weatheResponse.data.data[0].weather.description)
+      weatheResponse = await axios.get(`https://api.weatherbit.io/v2.0/forecast/daily?key=${WEATHER_API}&M=Metric&lat=${latitude}&lon=${longitude}&days=1`);
     } else {
        //Date within week => current
-      weatheResponse = await axios.get(`https://api.weatherbit.io/v2.0/current?key=${WEATHER_API}&M=Metric&lat=${latitude}&lon=${longitude}`)
-      console.log(weatheResponse.data.data)
-      console.log(weatheResponse.data.data[0].weather.description)
+      weatheResponse = await axios.get(`https://api.weatherbit.io/v2.0/current?key=${WEATHER_API}&M=Metric&lat=${latitude}&lon=${longitude}`);
     }
+    const pixaResponse = await axios.get(`https://pixabay.com/api/?key=${PIXABAY_API}&q=${location}&image_type=photo`);
 
     const newEntry = {
       contry: geonResponse.data.geonames[0].countryName,
@@ -86,7 +82,8 @@ app.post('/dataAnalyze', async (req, res) => {
       high: weatheResponse.data.data[0].high_temp || '',
       low: weatheResponse.data.data[0].min_temp || '',
       description: weatheResponse.data.data[0].weather.description,
-      temp: weatheResponse.data.data[0].temp || '', 
+      temp: weatheResponse.data.data[0].temp || '',
+      urlImage: pixaResponse.data.hits[0].webformatURL, 
       date: formDate,
     }
     console.log(newEntry)
@@ -96,6 +93,3 @@ app.post('/dataAnalyze', async (req, res) => {
     console.log('Error: ', error);
   }
 });
-
-
-//https://pixabay.com/api/?key=${PIXABAY_API}&q=${location}&image_type=photo

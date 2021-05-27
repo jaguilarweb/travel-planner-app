@@ -1,10 +1,19 @@
 function handleSubmit(event){
     event.preventDefault()
 
-    // check what text was put into the form field
-    const formText = document.getElementById('location').value
+    // Check what text was put into the form field
+    const text = document.getElementById('location').value
     const formDate = document.getElementById('date').value
     let mainContainer = document.getElementById('main-container');
+
+    //Replace all white spaces whatever kind
+    //https://es.stackoverflow.com/questions/307780/cambiar-caracteres-por-espacio-en-replace-javascript
+    const formText = text.toLowerCase().trim().replace(/\s+/g, "+");
+
+    //UpperCase first letter
+    const parseText = (text) => {
+        return text.charAt(0).toUpperCase() + text.slice(1);
+    }
 
     const parseDate = (day) => {
         let newDate = (day.getMonth() + 1) + '/'+ day.getUTCDate()+'/'+ day.getFullYear();
@@ -21,7 +30,6 @@ function handleSubmit(event){
     const msPerDay = 24 * 60 * 60 * 1000;
     const countdown = Math.round((dayTrip.getTime() - todayParse.getTime()) / msPerDay);
 
-
     fetch('http://localhost:8081/dataAnalyze',
     {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -34,7 +42,6 @@ function handleSubmit(event){
     .then(response => response.json())
     .then((response) => {
         const country = response.country;
-        const location = response.location;
 
         const section = document.createElement('section');
         section.className = "main-section-bottom";
@@ -58,10 +65,10 @@ function handleSubmit(event){
 
         const paragraph = document.createElement('p');
         divResult.appendChild(paragraph);
-        paragraph.innerHTML = `<h2>My trip to: ${location}, ${country}</h2>
+        paragraph.innerHTML = `<h2>My trip to: ${parseText(text.trim())}, ${country}</h2>
         <h3>Departing: ${parseDate(dayTrip)}</h3>
         <br>
-        <p>${location}, ${country} is <span>${countdown}</span> days away</p>
+        <p>${parseText(text.trim())}, ${country} is <span>${countdown}</span> days away</p>
         <br>
         <p>Typycal weather for then is: </p>
         <br>
@@ -74,21 +81,16 @@ function handleSubmit(event){
         icon.className="icon";
         divResult.appendChild(icon);
 
-
     })
-    .catch(error => console.log(`Error: ${error}`));
+    .catch((error) => {
+        alert('Have error')
+    });
     }
 export { handleSubmit }
 
-
-//TODO: 
 /* 
-- Add end date and display length of trip. (Possible)
-- Instead of just pulling a single day forecast, pull the forecast for multiple days. (possible much time)
-- Allow user to Print their trip and/or export to PDF.(possible)
-- Allow the user to remove the trip.(possible)
-
-
 //Done
 - Incorporate icons into forecast.(possible)
+- Allow user to Print their trip and/or export to PDF.(possible)
+- Allow the user to remove the trip.(possible)
  */

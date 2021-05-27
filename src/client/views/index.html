@@ -10,18 +10,23 @@
 <body>
   <header>
     <h1>Travel Planner</h1>
+    <h2>My Tryps:</h2>
   </header>
   <main>
-    <div class='main-container'>
+    <div id="main-container" class="main-container">
       <section class= "main-section-top">
-        <form class="">
+        <form>
+          <label>My trip to: </label>
           <input id="location" type="text" placeholder="Enter your location trip" required>
+          <label>Departing: </label>
           <input id="date" type="date" >
-          <button id="submitBtn" type="submit" class="submitBtn" value="submit">Add trip</button>
+          <button id="submitBtn" type="submit" class="submitBtn" value="submit">Add Trip</button>
+          <button id="resetBtn" type="reset" class="submitBtn">Remove Trip</button>
+          <button id="printBtn" class="submitBtn">Print</button>
         </form>
       </section>
-      <section class="main-section-bottom">
-          <div class='section-image section-width'>
+<!--       <section class="main-section-bottom">
+          <div class="section-image section-width">
             <img src="#">
             <button>add</button>
             <button>add</button>
@@ -30,7 +35,7 @@
           <div class="section-content section-width">
             <div id="results">
           </div>
-      </section>
+      </section> -->
     </div>
   </main>
   <footer>

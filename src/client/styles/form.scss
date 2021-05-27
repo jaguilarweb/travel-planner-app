@@ -3,20 +3,20 @@
 section {
     display: block;
     form {
-        color: white;
-        border-radius: 3px;
+        color: $color-marine;
         padding: 40px;
         input {
-            border: 2px solid black;
+            background: $color-background;
+            border: 2px solid $color-marine;
             padding: 5px 20px;
             width: 100%;
             line-height: 16px;
             margin: 10px 0;
         }
         .submitBtn {
-            background-color: black;
+            background-color: $color-marine;
             border-radius: 5px;
-            color: white;
+            color: $color-background;
         }
     }
 }

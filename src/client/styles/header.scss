@@ -1,8 +1,8 @@
 @import "_variables.scss";
 
 header {
-    background-color: white;
-    color: black;
+    background-color: $color-background;
+    color: $color-blue;
     height: 100px;
     text-align: center;
     h1 {

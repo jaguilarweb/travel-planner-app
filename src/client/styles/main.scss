@@ -1,6 +1,7 @@
 @import "_variables.scss";
 
 main{
+  background-color: $color-background;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -11,36 +12,53 @@ main{
 }
 
 .main-section-top{
-  background-color: $color-grey;
+  background-color: $color-orange;
+  border-radius: 20px 20px 0 0;
 }
+
 .main-section-bottom{
   display: flex;
   flex-wrap: nowrap;
-  padding-top: 20px;
+  padding: 20px 0 20px 0;
   justify-content: space-around;
-  background-color: $color-pink;
+  background-color: $color-grey-light;
 }
 
 .section-width{
-  width: 90%;
-  margin: 10px
+  width: 100%;
+  // border: 2px $color-orange solid;
 }
 
 .section-image{
   display: grid;
-  justify-items:flex-start;
-  button{
-    width: 60px;
-    border: 2px solid black;
-    border-radius: 20px;
-  }
 }
 
 img {
-  height: 200px;
-  width: 200px;
-  background-color: $color-grey;
+  height: 250px;
+  width: 250px;
+  justify-self: center;
+  border: 2px $color-orange solid;
+  border-radius: 50%;
+  background-color: $color-orange;
 }
+
 .section-content{
-  border: 2px solid red;
+  color: $color-marine;
+  align-self: center;
+  padding-right: 10px;
+  h2, h3, span{
+    font-weight: bold;
+  }
+}
+
+#results{
+  display: grid;
+}
+
+.icon {
+  margin-top: 10px;
+  height: 50px;
+  width: 50px;
+  background: $color-blue;
+  justify-self: right;
 }

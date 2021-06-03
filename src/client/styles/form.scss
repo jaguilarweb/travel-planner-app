@@ -1,22 +1,48 @@
 @import "_variables.scss";
 
 section {
-    display: block;
     form {
-        color: $color-marine;
+        display: grid;
+        grid-template-rows: 1fr 1fr 2fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 10px;
         padding: 40px;
-        input {
-            background: $color-background;
-            border: 2px solid $color-marine;
-            padding: 5px 20px;
-            width: 100%;
-            line-height: 16px;
-            margin: 10px 0;
+        color: $color-marine;
+        label{
+            font-family: $font-general;
+            font-size: 1.3em;
+            font-weight: bold;
+            justify-self: end;
+            align-self: end;
+            margin-right: 5px;
         }
-        .submitBtn {
+        input, input:focus {
+            align-self: flex-end;
+            border: none;
+            color: $color-grey-light;
+            background: $color-orange;
+            height: 20px;
+            width: 250px;
+            font-size: 1.2em;
+        }
+        input[type="date"], ::placeholder {
+            color: $color-grey-light;
+            font-family: $font-general;
+            font-variant-caps: normal;
+            font-size: 1.2em;
+            font-variant: small-caps;
+        }
+        .formBtn {
             background-color: $color-marine;
-            border-radius: 5px;
+            height: 27px;
+            width: 100px;
+            border: 1px $color-marine solid;
+            border-radius: 10px;
             color: $color-background;
+            align-self: center;
+        }
+        #submitBtn{
+            width: 250px;
         }
     }
 }

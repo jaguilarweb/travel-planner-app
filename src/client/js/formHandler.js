@@ -4,7 +4,7 @@ function handleSubmit(event){
     // Check what text was put into the form field
     const text = document.getElementById('location').value
     const formDate = document.getElementById('date').value
-    let mainContainer = document.getElementById('main-container');
+    let mainContainer = document.querySelector('.main-section-bottom');
 
     //Replace all white spaces whatever kind
     //https://es.stackoverflow.com/questions/307780/cambiar-caracteres-por-espacio-en-replace-javascript
@@ -43,29 +43,26 @@ function handleSubmit(event){
     .then((response) => {
         const country = response.country;
 
-        const section = document.createElement('section');
-        section.className = "main-section-bottom";
-        mainContainer.appendChild(section);
+        const article = document.createElement('article');
+        article.className = "article";
+        mainContainer.appendChild(article);
 
         const divImage = document.createElement('div');
-        divImage.className = 'section-image section-width';
-        section.appendChild(divImage);
+        divImage.className = 'article-image';
+        article.appendChild(divImage);
 
         const divContent = document.createElement('div');
-        divContent.className = 'section-content section-width';
-        section.appendChild(divContent);
-
-        const divResult = document.createElement('div');
-        divResult.setAttribute('id', 'results');
-        divContent.appendChild(divResult);
+        divContent.className = 'article-content';
+        divContent.setAttribute('id', 'results');
+        article.appendChild(divContent);
 
         const image = document.createElement('img');
         image.setAttribute('src', response.urlImage);
         divImage.appendChild(image);
 
-        const paragraph = document.createElement('p');
-        divResult.appendChild(paragraph);
-        paragraph.innerHTML = `<h2>My trip to: ${parseText(text.trim())}, ${country}</h2>
+        const divResult = document.createElement('div');
+        divContent.appendChild(divResult);
+        divResult.innerHTML = `<h2>My trip to: ${parseText(text.trim())}, ${country}</h2>
         <h3>Departing: ${parseDate(dayTrip)}</h3>
         <br>
         <p>${parseText(text.trim())}, ${country} is <span>${countdown}</span> days away</p>
@@ -79,13 +76,13 @@ function handleSubmit(event){
         const icon = document.createElement('img');
         icon.setAttribute('src', response.icon);
         icon.className="icon";
-        divResult.appendChild(icon);
+        divContent.appendChild(icon);
 
     })
     .catch((error) => {
         alert('Have error')
     });
-    }
+}
 export { handleSubmit }
 
 /* 

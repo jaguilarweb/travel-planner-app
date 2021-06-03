@@ -88,7 +88,9 @@ app.post('/dataAnalyze', async (req, res) => {
       icon: `https://www.weatherbit.io/static/img/icons/${weatheResponse.data.data[0].weather.icon}.png`,
       urlImage: pixaResponse.data.hits[0].webformatURL, 
     }
-/*     const newEntry = {
+    // To Development purpose. DELETE when you finish.
+    /*
+      const newEntry = {
       country: "UK",
       location: "London",
       high: "30",

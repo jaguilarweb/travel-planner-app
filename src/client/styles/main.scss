@@ -16,20 +16,17 @@ main{
   border-radius: 20px 20px 0 0;
 }
 
-.main-section-bottom{
+.article{
   display: flex;
   flex-wrap: nowrap;
   padding: 20px 0 20px 0;
   justify-content: space-around;
   background-color: $color-grey-light;
-}
-
-.section-width{
   width: 100%;
   // border: 2px $color-orange solid;
 }
 
-.section-image{
+.article-image{
   display: grid;
 }
 
@@ -42,7 +39,7 @@ img {
   background-color: $color-orange;
 }
 
-.section-content{
+.article-content{
   color: $color-marine;
   align-self: center;
   padding-right: 10px;

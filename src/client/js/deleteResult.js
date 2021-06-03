@@ -1,9 +1,9 @@
 function deleteSubmit(event){
   event.preventDefault()
-  const divMainContainer = document.getElementById('main-container');
+  const divParentContainer = document.querySelector('.main-section-bottom');
   //Remove the oldest first
-  const sectionBottom = document.querySelector('.main-section-bottom');
-  divMainContainer.removeChild(sectionBottom);
+  const articleReset = document.querySelector('article');
+  divParentContainer.removeChild(articleReset);
 
 }
 export { deleteSubmit }

@@ -5,3 +5,10 @@
 @import "header.scss";
 @import "footer.scss";
 @import "media-queries.scss";
+
+html {
+  font-size: 100%; /* 100% = 16px */
+}
+p {
+  font-size: 1em; /* 1em = 16px */
+}

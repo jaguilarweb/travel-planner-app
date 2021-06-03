@@ -12,7 +12,7 @@ module.exports = {
   mode: 'production',
   output: {
     publicPath: "/",
-    path: path.resolve(process.cwd(), 'dist'),
+    path: path.resolve(process.cwd(), 'dist')
   },
   module: {
     rules: [

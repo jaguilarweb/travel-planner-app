@@ -1,10 +1,13 @@
+import { validate } from "./formValidate";
+
 function handleSubmit(event){
     event.preventDefault()
 
     // Check what text was put into the form field
     const text = document.getElementById('location').value
     const formDate = document.getElementById('date').value
-    if(text && formDate){
+
+    if(validate(text, formDate)){
 
         let mainContainer = document.querySelector('.main-section-bottom');
     
@@ -97,9 +100,6 @@ function handleSubmit(event){
         .catch((error) => {
             alert('Have error')
         });
-    }else{
-        alert('Please, insert your location trip and date');
     }
-
 }
 export { handleSubmit }

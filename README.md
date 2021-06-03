@@ -35,3 +35,10 @@ This project requires me to build out a travel app that, at a minimum, obtains a
 
 ```
 
+## Extend options
+
+I have implemented the following aditional features:
+
+- Incorporate icons into forecast.
+- Allow user to Print their trip and/or export to PDF.
+- Allow the user to remove the trip.

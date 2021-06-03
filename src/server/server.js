@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
 app.post('/dataAnalyze', async (req, res) => {
   //TODO: Check locations with spaces
   const location = req.body["formText"];
-  const formDate = req.body["formDate"];
+  const formDate = req.body["dayTrip"];
   const dateTrip = new Date(formDate);
   const today = new Date();
   const msPerDay = 24 * 60 * 60 * 1000;

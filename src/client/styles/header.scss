@@ -5,10 +5,14 @@ header {
     color: $color-blue;
     height: 100px;
     text-align: center;
+    font-family: $font-general;
     h1 {
-        font-family: $font-general;
         font-size: 2em;
         padding-top: 20px;
     }
+    h2 {
+        margin: 20px 0 0 45px;
+        font-size: 1.2em;
+        text-align: left;
+    }
   }
-

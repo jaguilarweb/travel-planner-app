@@ -1,13 +1,8 @@
 function validate(formText, formDate){
 
-    if(formText== ""){
-      alert("Please provide a location desired");
-      return false;
+    if(formText && formDate){
+      return true;
     }
-    if(formDate == ""){
-      alert("Please provide a date desired");
-      return false;
-    }
-    return true;
+    return false;
 }
 export { validate }

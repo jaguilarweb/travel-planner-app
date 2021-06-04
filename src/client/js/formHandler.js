@@ -95,6 +95,8 @@ function handleSubmit(event){
         .catch((error) => {
             alert('Something is wrong... please, try again.')
         });
+    }else{
+        alert("Sorry, location and date inputs are required.")
     }
 }
 export { handleSubmit }

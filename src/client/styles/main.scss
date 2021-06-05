@@ -38,6 +38,9 @@ img {
   border-radius: 50%;
   background-color: $color-orange;
 }
+img:hover {
+  opacity: 0.5;
+}
 
 .article-content {
   display: grid;

@@ -21,7 +21,7 @@ section {
             border: none;
             color: $color-grey-light;
             background: $color-orange;
-            height: 20px;
+            height: 25px;
             width: 250px;
             font-size: 1.2em;
         }
@@ -32,6 +32,10 @@ section {
             font-size: 1.2em;
             font-variant: small-caps;
         }
+/*         input:hover {
+            border: $color-marine 2px solid;
+            border-radius: 20%;
+        } */
         .formBtn {
             background-color: $color-marine;
             height: 27px;
@@ -40,6 +44,11 @@ section {
             border-radius: 10px;
             color: $color-background;
             align-self: center;
+        }
+        .formBtn:hover{
+            background-color: $color-background;
+            color: $color-marine;
+
         }
         #submitBtn{
             width: 250px;

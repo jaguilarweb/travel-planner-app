@@ -1,0 +1,92 @@
+/* Anything smaller than first breakpoint 600px */
+@media (max-width: 420px) {
+  body {
+    background: blue;
+  }
+  .main-container {
+    width: 80%;
+  }
+  section {
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      input, input:focus {
+        align-self: flex-end;
+        height: 25px;
+        width: 90%;
+        font-size: 1.0em;
+      }
+      input[type="date"], ::placeholder {
+        font-size: 1.0em;
+      }
+      label {
+        font-family: $font-general;
+        font-size: 1.1em;
+        font-weight: bold;
+        justify-self: end;
+        align-self: end;
+        margin-right: 5px;
+      }
+      #submitBtn {
+        width: 80%;
+      }
+      .formBtn {
+        width: 80%;
+      }
+    }
+  }
+  .article {
+    flex-wrap: wrap;
+  }
+  .article-content {
+    padding: 15px;
+    text-align: center;
+  }
+}
+
+/* Medium Screens */
+@media (min-width: 421px) and (max-width: 600px) {
+  body {
+    background: red;
+  }
+  .main-container {
+    width: 80%;
+  }
+  section {
+    form {
+      input, input:focus {
+        align-self: flex-end;
+        height: 25px;
+        width: 90%;
+        font-size: 1.1em;
+      }
+      input[type="date"], ::placeholder {
+        font-size: 1.1em;
+      }
+      label{
+        font-family: $font-general;
+        font-size: 1.1em;
+        font-weight: bold;
+        justify-self: end;
+        align-self: end;
+        margin-right: 5px;
+      }
+      #submitBtn{
+        width: 80%;
+      }
+    }
+  }
+  .article {
+    flex-wrap: wrap;
+  }
+  .article-content {
+    padding: 15px;
+    text-align: center;
+  }
+}
+
+@media (min-width:601px) {
+  body {
+    background: purple;
+  }
+}

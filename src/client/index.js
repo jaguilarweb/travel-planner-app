@@ -3,9 +3,7 @@ import { deleteSubmit } from './js/deleteResult';
 import { minDate } from './js/inputDate';
 import { print } from './js/printTrip';
 
-
 import './styles/stylesheet.scss';
-
 
 window.addEventListener('DOMContentLoaded', () => {
   minDate();
@@ -19,4 +17,4 @@ export {
   minDate,
   print,
   deleteSubmit
- }
+}

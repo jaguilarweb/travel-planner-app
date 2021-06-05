@@ -5,4 +5,5 @@ function validate(formText, formDate){
     }
     return false;
 }
+
 export { validate }

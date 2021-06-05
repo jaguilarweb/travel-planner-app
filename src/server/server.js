@@ -31,7 +31,6 @@ app.listen(port, () => {
   console.log(`running on localhost:${port}`);
 });
 
-
 // ROUTES
 /*---------------------------------
   Test Route
@@ -88,23 +87,10 @@ app.post('/dataAnalyze', async (req, res) => {
       icon: `https://www.weatherbit.io/static/img/icons/${weatheResponse.data.data[0].weather.icon}.png`,
       urlImage: pixaResponse.data.hits[0].webformatURL, 
     }
-    // To Development purpose. DELETE when you finish.
-    /*
-      const newEntry = {
-      country: "UK",
-      location: "London",
-      high: "30",
-      low: "4",
-      description: "cloudy",
-      temp: "20",
-      icon: "https://www.weatherbit.io/static/img/icons/t01d.png",
-      urlImage: "https://pixabay.com/get/g2307997b2e1a33deef7f5d9f2936961dcdde8e64539263a9f06b2db42baf3908afdd3431de0f0d580237fe71d38e51b9_640.jpg", 
-    } */
 
     projectData = newEntry;
     res.send(projectData);
   } catch (error) {
-    //TODO: Improve error handler
     console.log('Error: ', error);
   }
 });

@@ -4,6 +4,6 @@ function deleteSubmit(event){
   //Remove the oldest first
   const articleReset = document.querySelector('article');
   divParentContainer.removeChild(articleReset);
-
 }
+
 export { deleteSubmit }

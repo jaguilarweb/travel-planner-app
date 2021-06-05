@@ -3,6 +3,7 @@
   .main-container {
     width: 80%;
   }
+
   section {
     form {
       display: flex;
@@ -32,9 +33,11 @@
       }
     }
   }
+
   .article {
     flex-wrap: wrap;
   }
+
   .article-content {
     padding: 15px;
     text-align: center;
@@ -46,6 +49,7 @@
   .main-container {
     width: 80%;
   }
+
   section {
     form {
       input, input:focus {
@@ -78,4 +82,3 @@
     text-align: center;
   }
 }
-

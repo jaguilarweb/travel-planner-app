@@ -9,9 +9,19 @@ If the trip is within a week, you will get the current weather forecast. If the 
 
 This project requires me to build out a travel app that, at a minimum, obtains a desired trip location & date from the user, and displays weather and an image of the location using information obtained from external APIs.
 
-## In progress... :construction:
+## Project UI
 
-## Dependencies
+![](https://github.com/jaguilarweb/travel-planner-app/blob/master/src/client/assets/travel-planer-app.png)
+
+
+## Getting started
+This project needs to have installed NodeJS.
+
+That once you clone cd into your new folder and run:
+
+`npm install`
+
+## Installing other Dependencies
 
 ```
 - npm install
@@ -35,6 +45,23 @@ This project requires me to build out a travel app that, at a minimum, obtains a
 
 ```
 
+## Running local
+
+To run development mode, run:
+
+`npm run build-dev`
+
+To run product mode, run:
+
+`npm run build-prod`
+
+## Testing
+
+To run the tests, run:
+
+`npm run test`
+
+
 ## Extend options
 
 I have implemented the following aditional features:
@@ -42,3 +69,14 @@ I have implemented the following aditional features:
 - Incorporate icons into forecast.
 - Allow user to Print their trip and/or export to PDF.
 - Allow the user to remove the trip.
+
+
+## Disclaimer
+
+- Disclaimer: This is a proposal or test project and your use of the code is under your own accountability.
+
+- Trademarks: Any of the trademarks, service marks, collective marks, design rights, personality rights or similar rights that are mentioned, used or cited in this project are the property of their respective owners. Their use here does not imply that you may use them for any other purpose other than for the same or a similar informational use as contemplated by the original authors.
+
+## Author
+
+This application and documentation were created by Jenny Aguilar.

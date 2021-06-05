@@ -53,7 +53,6 @@ function handleSubmit(event){
 
             const divContent = document.createElement('div');
             divContent.className = 'article-content';
-            divContent.setAttribute('id', 'results');
             article.appendChild(divContent);
 
             const image = document.createElement('img');

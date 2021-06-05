@@ -11,13 +11,13 @@ This project requires me to build out a travel app that, at a minimum, obtains a
 
 ## Project UI
 
-![](https://github.com/jaguilarweb/travel-planner-app/blob/master/src/client/assets/travel-planer-app.png)
+![](https://github.com/jaguilarweb/travel-planner-app/blob/master/src/client/assets/travel-planner-app.png)
 
 
 ## Getting started
 This project needs to have installed NodeJS.
 
-That once you clone cd into your new folder and run:
+That once you clone, cd into your new folder and run:
 
 `npm install`
 

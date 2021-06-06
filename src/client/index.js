@@ -7,9 +7,9 @@ import './styles/stylesheet.scss';
 
 window.addEventListener('DOMContentLoaded', () => {
   minDate();
-  document.getElementById('submitBtn').addEventListener('click', handleSubmit);
-  document.getElementById('resetBtn').addEventListener('click', deleteSubmit);
-  document.getElementById('printBtn').addEventListener('click', print);
+  document.getElementById('submit-btn').addEventListener('click', handleSubmit);
+  document.getElementById('reset-btn').addEventListener('click', deleteSubmit);
+  document.getElementById('print-btn').addEventListener('click', print);
 });
 
 export {

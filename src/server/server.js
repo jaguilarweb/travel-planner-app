@@ -13,7 +13,7 @@ const WEATHER_API= process.env.WEATHER_API;
 const PIXABAY_API= process.env.PIXABAY_API;
 
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
+let projectData = {};
 
 //Config server express
 const app = express();
@@ -35,15 +35,8 @@ app.listen(port, () => {
 /*---------------------------------
   Test Route
 ----------------------------------*/
-app.get('/test', (req, res) => {
+app.get('/test', async (req, res) => {
   res.status(200).send('Server working!');
-});
-
-/*---------------------------------
-  GET Route
-----------------------------------*/
-app.get('/', (req, res) => {
-  res.sendFile("dist/index.html");
 });
 
 /*---------------------------------
@@ -51,9 +44,9 @@ app.get('/', (req, res) => {
 ----------------------------------*/
 
 app.post('/dataAnalyze', async (req, res) => {
-  //TODO: Check locations with spaces
   const location = req.body["formText"];
   const formDate = req.body["dayTrip"];
+  let countdown = req.body["countdown"];
   const dateTrip = new Date(formDate);
   const today = new Date();
   const msPerDay = 24 * 60 * 60 * 1000;
@@ -69,22 +62,27 @@ app.post('/dataAnalyze', async (req, res) => {
     // Weatherbit API
     if (dateTrip.getTime() > week){
       //The trip is in the future => predicted forecast
-      weatheResponse = await axios.get(`https://api.weatherbit.io/v2.0/forecast/daily?key=${WEATHER_API}&M=Metric&lat=${latitude}&lon=${longitude}&days=1`);
+      weatheResponse = await axios.get(`https://api.weatherbit.io/v2.0/forecast/daily?key=${WEATHER_API}&M=Metric&lat=${latitude}&lon=${longitude}&days=16`);
     } else {
       //The trip is within a week => current weather forecast
       weatheResponse = await axios.get(`https://api.weatherbit.io/v2.0/current?key=${WEATHER_API}&M=Metric&lat=${latitude}&lon=${longitude}`);
     }
     // Pixabay API
-    const pixaResponse = await axios.get(`https://pixabay.com/api/?key=${PIXABAY_API}&q=${location}&image_type=photo`);
+    const pixaResponse = await axios.get(`https://pixabay.com/api/?key=${PIXABAY_API}&q=${location}&category=places&image_type=photo`);
+
+    //Limit API to forescast 16 days (1 day interval)
+    if(countdown > 15){
+      countdown = 15;
+    }
 
     const newEntry = {
       country: geonResponse.data.geonames[0].countryName,
       location: location,
-      high: weatheResponse.data.data[0].high_temp || '',
-      low: weatheResponse.data.data[0].low_temp || '',
-      description: weatheResponse.data.data[0].weather.description,
-      temp: weatheResponse.data.data[0].temp || '',
-      icon: `https://www.weatherbit.io/static/img/icons/${weatheResponse.data.data[0].weather.icon}.png`,
+      high: weatheResponse.data.data[countdown].high_temp || '',
+      low: weatheResponse.data.data[countdown].low_temp || '',
+      description: weatheResponse.data.data[countdown].weather.description,
+      temp: weatheResponse.data.data[countdown].temp || '',
+      icon: `https://www.weatherbit.io/static/img/icons/${weatheResponse.data.data[countdown].weather.icon}.png`,
       urlImage: pixaResponse.data.hits[0].webformatURL, 
     }
 
@@ -94,3 +92,5 @@ app.post('/dataAnalyze', async (req, res) => {
     console.log('Error: ', error);
   }
 });
+
+module.exports = app

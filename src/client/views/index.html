@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travel Planner App</title>
-  <link rel="stylesheet" href="/styles/stylesheet.css">
 </head>
 <body>
   <header>
@@ -19,9 +18,9 @@
           <input id="location" type="text" placeholder="Enter your location trip" required />
           <label>Departing: </label>
           <input id="date" type="date" />
-          <button id="resetBtn" type="reset" class="formBtn">Remove Trip</button>
-          <button id="submitBtn" type="submit" class="formBtn" value="submit" >Add Trip</button>
-          <button id="printBtn" class="formBtn">Print</button>
+          <button id="reset-btn" type="reset" class="form-btn">Remove Trip</button>
+          <button id="submit-btn" type="submit" class="form-btn" value="submit" >Add Trip</button>
+          <button id="print-btn" class="form-btn">Print</button>
         </form>
       </section>
       <section class= "main-section-bottom">
@@ -32,7 +31,7 @@
     <p>@2021 jaguilarweb</p>
   </footer>
   <script>
-    //Reference: https://knowledge.udacity.com/questions/399884
+/*     //Reference: https://knowledge.udacity.com/questions/399884
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {navigator.serviceWorker.register('/service-worker.js')
       .then(registration => {
@@ -40,7 +39,7 @@
       });
     }else{
       console.log("Service Working not supported");
-    }
+    } */
   </script>
 </body>
 </html>

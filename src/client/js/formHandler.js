@@ -37,7 +37,7 @@ function handleSubmit(event){
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({formText, dayTrip})
+            body: JSON.stringify({formText, dayTrip, countdown})
         })
         .then(response => response.json())
         .then((response) => {
